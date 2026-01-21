@@ -17,4 +17,4 @@ start:
     hlt
     jmp .halt
 
-msg db "KERNEL-TEST OK",0
+msg db "hi pookie <3",0
