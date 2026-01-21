@@ -40,7 +40,7 @@ Arch Linux (x86_64)
 1. Assemble the bootloader
 nasm -f bin boot.asm -o boot.bin
 2. Assemble the kernel
-nasm -f elf32 kernel.asm -o kernel.o
+nasm -f elf32 kernel_test.asm -o kernel.o
 3. Link the kernel
 ld -m elf_i386 -T linker.ld kernel.o -o kernel.bin
 4. Create bootable OS image
@@ -49,7 +49,8 @@ cat boot.bin kernel.bin > os-image.bin
 qemu-system-i386 os-image.bin
 
 ## Output
-On successful boot, the kernel displays a message such as: OK Kernel...
+On successful boot, the kernel displays a message such as: OK Kernel... //updated hi pookie<3
+<img width="1920" height="1080" alt="Screenshot From 2026-01-21 20-13-24" src="https://github.com/user-attachments/assets/777b792d-ad1f-4aba-acc5-d5f3b456dc94" />
 
 
 
