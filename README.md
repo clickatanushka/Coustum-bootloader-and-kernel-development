@@ -9,10 +9,22 @@ The OS is minimal and educational in nature, focusing on the boot sequence, memo
 # Features
 * Custom x86 bootloader written in Assembly
 * Boots directly using BIOS (Legacy boot)
-* Loads and jumps to an Assembly-based kernel
-* Kernel prints output to the screen
+* Loads and jumps to an Assembly-based kernel (pinkOS)
+* Interactive shell: type commands on a pink VGA text screen
+* Keyboard driver that polls the PS/2 controller directly (shift and caps lock supported)
+* VGA text driver with scrolling, backspace and hardware cursor
+* Three switchable pink colour themes
 * Runs successfully in QEMU emulator
 * Built and tested on Arch Linux
+
+# Shell commands
+| Command | What it does |
+|---------|--------------|
+| `help`  | list the commands |
+| `clear` | clear the screen |
+| `echo <text>` | print the text back |
+| `about` | how the kernel works |
+| `theme` | cycle through the pink themes (blossom, rose, noir) |
 
 # What I Learned
 * How BIOS loads the first 512 bytes (boot sector)
@@ -38,11 +50,19 @@ Arch Linux (x86_64)
 
 
 
-#Build Process
+# Build Process
+Requires `nasm` and `qemu-system-i386`.
+
+```
+make        # builds build/os.img
+make run    # builds and boots it in QEMU
+```
+
+Or step by step (this is what `build.sh` and the Makefile do):
 1. Assemble the bootloader
 nasm -f bin boot.asm -o boot.bin
 2. Assemble the kernel
-nasm -f elf32 kernel_test.asm -o kernel.o
+nasm -f elf32 kernel.asm -o kernel.o
 3. Link the kernel
 ld -m elf_i386 -T linker.ld kernel.o -o kernel.bin
 4. Create bootable OS image
@@ -51,8 +71,7 @@ cat boot.bin kernel.bin > os-image.bin
 qemu-system-i386 os-image.bin
 
 ## Output
-On successful boot, the kernel displays a message such as: OK Kernel... //updated hi pookie<3
-<img width="1920" height="1080" alt="Screenshot From 2026-01-21 20-13-24" src="https://github.com/user-attachments/assets/777b792d-ad1f-4aba-acc5-d5f3b456dc94" />
+On successful boot, the kernel displays a message such as: OK Kernel...
 
 
 
