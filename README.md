@@ -1,4 +1,6 @@
 # Custom Bootloader and Kernel Operating System
+<img width="1488" height="1024" alt="image" src="https://github.com/user-attachments/assets/d0f84638-f7a3-4d35-8309-72421e2731e2" />
+
 
 This project is a from-scratch custom bootloader and kernel developed to understand low-level system programming and operating system fundamentals.
 The goal was to learn how an OS boots, switches CPU modes, and hands control from a bootloader to a custom kernel written entirely in Assembly.
