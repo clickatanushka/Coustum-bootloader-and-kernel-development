@@ -70,14 +70,7 @@ cat boot.bin kernel.bin > os-image.bin
 5. Run in QEMU
 qemu-system-i386 os-image.bin
 
-## Output
-On successful boot, the kernel displays a message such as: OK Kernel...
 
-
-
- Author
-Anushka Joshi  
-B.Tech Student | Systems and OS Enthusiast
 
 
 
